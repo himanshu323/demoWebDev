@@ -1,0 +1,15 @@
+*{
+	font-family: source sans pro;
+}
+
+body{
+	border:20px solid #bdc3c7;
+	width:60%;
+	margin: 20px auto;
+	padding: 20px;
+}
+
+.date{
+	color: #3498db;
+	font-weight: bold;
+}
