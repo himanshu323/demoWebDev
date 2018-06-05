@@ -1,0 +1,43 @@
+	/*h1{
+		color:blue;
+			}*/
+
+	h1{
+		color:#00FF00;
+		background: rgb(255, 77, 77);
+		/*border-width: 2px;
+		border-style: solid;
+		border-color: blue;*/
+		border: 5px solid blue;
+
+	}
+	li{
+		color:rgba(68,0,255,0.2);
+		background: #ffff99;
+			}
+
+	h4{
+		color:rgb(68,0,255);
+	}
+
+	body{
+		background: url(https://images.pexels.com/photos/139306/pexels-photo-139306.jpeg?auto=compress&cs=tinysrgb&h=350);
+		background-repeat: no-repeat;
+		background-size: cover;
+
+	}
+
+	#cricket{
+		background: orange;
+		text-decoration: underline;
+	}
+
+	.one{
+
+		background: purple;
+	}
+
+
+
+
+
