@@ -1,4 +1,6 @@
-
+var numSquares = 6;
+var colors =[];
+var pickedColor ;
 var squares=document.querySelectorAll(".square");
 var colorDisplay=document.getElementById("picked");
 var messageDisplay=document.getElementById("message");
@@ -6,8 +8,33 @@ var headerL=document.getElementsByTagName("h1")[0];
 var resetButton=document.getElementById("reset");
 var easyButt=document.getElementById("easy");
 var hardButt=document.getElementById("hard");
+var levels=document.querySelectorAll(".levels");
 
-easyButt.addEventListener("click",function () {
+init();
+
+function init() {
+    setupModes();
+    setupSquares();
+    reset();
+}
+
+function setupModes() {
+    for(var i = 0; i < levels.length; i++) {
+
+        levels[i].addEventListener("click", function () {
+            levels[0].classList.remove("selected");
+            levels[1].classList.remove("selected");
+
+            this.classList.add("selected");
+            this.textContent === "Easy" ? numSquares = 3 : numSquares = 6;
+            reset();
+
+        });
+
+    }
+}
+
+/* easyButt.addEventListener("click",function () {
     easyButt.classList.add("selected");
     hardButt.classList.remove("selected");
     numSquares=3;
@@ -37,10 +64,9 @@ hardButt.addEventListener("click", function () {
             squares[i].style.display = "block";
         
     }
-})
-var numSquares=6;
-var colors = generateRandomColor(numSquares);
-console.log(colors);
+}) */
+
+
 /* [
 
     "rgb(255, 0, 0)",
@@ -52,29 +78,30 @@ console.log(colors);
 
 ]; */
 
-var pickedColor=pickColor();
-colorDisplay.textContent=pickedColor;
 
-for(var i=0;i<squares.length;i++){
+function setupSquares() {
+    for (var i = 0; i < squares.length; i++) {
 
-squares[i].style.background=colors[i];
+        squares[i].style.background = colors[i];
 
-squares[i].addEventListener("click",function () {
-    var colorPicked=this.style.background;
-    
-    if(colorPicked===pickedColor){
-        changeColor(colorPicked);
-        messageDisplay.textContent="Correct";
-        headerL.style.background=pickedColor;
-        resetButton.textContent="Play Again";
+        squares[i].addEventListener("click", function () {
+            var colorPicked = this.style.background;
+
+            if (colorPicked === pickedColor) {
+                changeColor(colorPicked);
+                messageDisplay.textContent = "Correct";
+                headerL.style.background = pickedColor;
+                resetButton.textContent = "Play Again";
+            }
+            else {
+                this.style.background = "black";
+                messageDisplay.textContent = "Try Again";
+            }
+        })
+
     }
-    else{
-        this.style.background="black";
-        messageDisplay.textContent="Try Again";
-    }
-})
-    
 }
+
 
 function changeColor(color) {
     for(var i=0;i<squares.length;i++){
@@ -83,20 +110,26 @@ function changeColor(color) {
 }
 
 function pickColor() {
-  var random=  Math.floor(Math.random()*6);
-  console.log(colors,random);
+  var random=  Math.floor(Math.random()*numSquares);
+  
   return colors[random];
 }
 
 function generateRandomColor(num) {
     var colorsTest=randomColor(num);
-    for(var i=0;i<num;i++){
-      
+    for(var i=0;i<squares.length;i++){
+      if(colorsTest[i]){
+          
+          squares[i].style.display="block";
         squares[i].style.background=colorsTest[i];
-    
+      }
+      else{
+          
+          squares[i].style.display="none";
+      }
         
     }
-    console.log(colorsTest);
+    
     return colorsTest;
 }
 
@@ -120,13 +153,20 @@ var colArray=[];
 
 
     resetButton.addEventListener("click",function () {
-        colors=generateRandomColor(6);
-        console.log("hello",colors)
-        pickedColor=pickColor();
-        console.log("picked",pickedColor);
-        colorDisplay.textContent=pickedColor;
-        headerL.style.background="black";
-
+        reset();
+       
     })
+
+    function reset() {
+        
+        colors = generateRandomColor(numSquares);
+
+        pickedColor = pickColor();
+
+        colorDisplay.textContent = pickedColor;
+        headerL.style.background = "steelblue";
+        messageDisplay.textContent = "";
+        resetButton.textContent = "New Colors";
+    }
 
 
