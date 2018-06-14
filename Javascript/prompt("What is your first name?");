@@ -1,0 +1,4 @@
+prompt("What is your first name?");
+prompt("what is your last name?");
+prompt("what is your age?");
+console.log("Your")
