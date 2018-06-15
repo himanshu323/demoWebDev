@@ -2,11 +2,26 @@
 <html>
 <head>
 	<title>My Login Form</title>
-	<style type="text/css">
-	.someClass{
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<style type="text/css" rel="stylesheet">
+	
+	.correct{
+		color:green;
+	}
+
+	.wrong{
 		color:red;
-		font-size: 200px;
-		font-family: 'Times New Roman', Times, serif
+	}
+	.done{
+		text-decoration: line-through;
+		opacity: 0.5;
+	}
+
+	p.effects{
+		background: orange;
+		width:20%;
+		height:100px;
+		display: none;
 	}
 	</style>
 </head>
@@ -14,6 +29,12 @@
 
 	<h1>My User From</h1>
 	<form action="http://www.wikipedia.org" method="get">
+
+		<button>Click Me</button>
+
+		<p class="effects">Hello</p>
+		<p class="effects">Bye bye</p>
+		<p class="effects">Alrighty</p>
 
 	<!-- <input type="checkbox" name="condition">
 		<input type="radio" name="radio"> -->
@@ -25,18 +46,7 @@
 	<label>
 		Password:
 		<input type="password" name="password" placeholder="password">
-
-
 	</label> -->
-
-	<button>Click Me	</button>
-
-	<ul>
-
-		<li>HelloHello	</li>
-		<li>Bye	</li>
-		<li>Hiiii	</li>
-	</ul>
 
 	<label for="email">
 		Email:
@@ -80,7 +90,8 @@
 
 	<!-- <input type="color" name="picker"> -->
 	<input type="submit" name="button">
+	<script src="demoForms.js"></script>
 </form>
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
 </body>
 </html>
