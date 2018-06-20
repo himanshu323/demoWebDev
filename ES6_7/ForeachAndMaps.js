@@ -97,3 +97,72 @@ var accounts = [
 var account = accounts.find(function (account) {
     return account.balance === 12;
 });
+
+var users = [
+    { id: 21, hasSubmitted: true },
+    { id: 62, hasSubmitted: false },
+    { id: 4, hasSubmitted: true }
+];
+
+var hasSubmitted=users.every(function (user) {
+   return user.hasSubmitted; 
+});
+
+console.log(hasSubmitted);
+
+var requests = [
+    { url: '/photos', status: 'complete' },
+    { url: '/albums', status: 'pending' },
+    { url: '/users', status: 'failed' }
+];
+
+var inProgress=requests.some(function (request) {
+    return request.status ==="pending";
+})
+
+console.log(inProgress);
+
+var trips = [{ distance: 34 }, { distance: 12 }, { distance: 1 }];
+
+var totalDistance=trips.reduce(function (previous,trip) {
+    return previous+trip.distance;
+},0)
+
+console.log(totalDistance);
+
+var desks = [
+    { type: 'sitting' },
+    { type: 'standing' },
+    { type: 'sitting' },
+    { type: 'sitting' },
+    { type: 'standing' }
+];
+
+var deskTypes = desks.reduce(function (previous,desk) {
+    if(desk.type==="sitting"){previous.sitting++;
+    }
+    else{
+        previous.standing++;
+    }
+    return previous;
+}, { sitting: 0, standing: 0 });
+
+console.log(deskTypes);
+
+function unique(array) {
+   return array.reduce(function (previous,arr) {
+        
+        if(previous.length===0){
+            previous.push(arr);
+        }
+        else if( !previous.find(function (pre) {
+            return pre===arr;
+        })){
+            previous.push(arr);
+        }
+        return previous;
+    },[])  
+   
+}
+
+console.log(unique([1,1,2,2,3,4]));
