@@ -1,0 +1,12 @@
+<%include partials/header%>
+<h1>Welcome to test app</h1>
+
+<p>You are logged in as <%= varText.toLowerCase() %></p>
+
+<% if(varText.toLowerCase()==="rohit"){ %>
+<p> You guessed it right</p>
+<%} else { %>
+<p> You guessed wrong </p>
+<% } %>
+
+<%include partials/footer%>
