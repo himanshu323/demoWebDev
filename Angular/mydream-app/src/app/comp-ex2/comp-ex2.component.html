@@ -1,0 +1,17 @@
+<button class="btn btn-primary" (click)="onButtonClick()">
+Display Details
+</button>
+
+<p *ngIf="clickBT">Secret Password :Hello</p>
+
+<p *ngFor="let c of clickArray; let i = index" [ngStyle]="{background: i>=4?'blue':'none'}" [ngClass]="{change: i>=4}">{{c}}</p>
+
+
+
+
+
+
+
+
+
+

@@ -77,10 +77,10 @@
     "object-literal-sort-keys": false,
     "one-line": [
       true,
-      "check-open-brace",
+     /*  "check-open-brace",
       "check-catch",
       "check-else",
-      "check-whitespace"
+      "check-whitespace" */
     ],
     "prefer-const": true,
     "quotemark": [
@@ -108,14 +108,14 @@
     ],
     "unified-signatures": true,
     "variable-name": false,
-    /* "whitespace": [
+    "whitespace": [
       true,
       "check-branch",
       "check-decl",
       "check-operator",
       "check-separator",
       "check-type"
-    ] */
+    ],
     "no-output-on-prefix": true,
     "use-input-property-decorator": true,
     "use-output-property-decorator": true,

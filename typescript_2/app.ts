@@ -59,3 +59,21 @@ klkkl`
 console.log(textTemplateLiteral);
 
 console.log(text);
+
+
+let testArray: {
+  name: string;
+  age: number
+  hasWatched: boolean
+  friends: string[],
+  printMessag(val:number):void
+} = {
+  name: "Rohit",
+  age: 23,
+  hasWatched: true,
+  friends: ["Hello", "Test"]
+  ,  printMessag:function(value:number) {
+         value;
+    }, 
+};
+

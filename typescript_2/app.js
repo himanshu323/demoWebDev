@@ -41,3 +41,12 @@ var text = "kljlkjlj" + col2 + "\n" +
 var textTemplateLiteral = "jkjldsj\nj;j;j;" + col2 + "\nklkkl";
 console.log(textTemplateLiteral);
 console.log(text);
+var testArray = {
+    name: "Rohit",
+    age: 23,
+    hasWatched: true,
+    friends: ["Hello", "Test"],
+    printMessag: function (value) {
+        value;
+    },
+};
