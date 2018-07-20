@@ -7,7 +7,7 @@ import { Recipe } from 'src/app/recipes/recipes.model';
   styleUrls: ['./recipes-list.component.css']
 })
 export class RecipesListComponent implements OnInit {
-  recipes:Recipe[]=[new Recipe("Test Recipe","description","https://images.media-allrecipes.com/images/56589.png")]
+  recipes: Recipe[] = [new Recipe("Test Recipe", "description", "https://images.media-allrecipes.com/images/56589.png"), new Recipe("Test Recipe", "description", "https://images.media-allrecipes.com/images/56589.png"]
   constructor() { }
 
   ngOnInit() {

@@ -6,6 +6,9 @@
 
     <hr>
 
-    <p>The List</p>
+    <ul class="list-group">
+
+      <a class="list-group-item" *ngFor="let ing of ingredients">{{ing.name}} ({{ing.amount}})</a>
+    </ul>
   </div>
 </div>
