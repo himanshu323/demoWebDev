@@ -1,7 +1,17 @@
 <div class="container">
-  <app-cockpit-component (serverCreated)="onAddedServer($event)" 
+  <app-cockpit-component (serverCreated)="onAddedServer($event)"
   (blueprintCreated)="onAddedBlueprint($event)"
   > </app-cockpit-component>
   <hr>
-  <app-server-component *ngFor="let server of serverElements" [servElementName]="server"></app-server-component>
+  <button class="btn btn-primary" (click)="onChange()" #button>Change Button</button>
+  <app-server-component *ngFor="let server of serverElements" [servElementName]="server" [name]="server.name">
+
+    <div class="panel-body">
+      <p #content>Hello Test</p>
+      <p>
+        <strong *ngIf="server.type === 'server'" style="color: red">{{ server.content }}</strong>
+        <em *ngIf="server.type === 'blueprint'">{{ server.content }}</em>
+      </p>
+    </div>
+  </app-server-component>
 </div>

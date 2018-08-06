@@ -1,0 +1,34 @@
+<div class="container">
+<div class="row">
+  <div class="col-xs-12">
+<app-gamecontrol (displayValue)="onVal($event)"></app-gamecontrol>
+
+
+
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12">
+
+
+    <app-even *ngFor="let c of evenArray" [even]="c"></app-even>
+
+
+
+
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12">
+
+
+      <app-odd *ngFor="let c of oddArray" [odd]="c"></app-odd>
+
+
+    </div>
+</div>
+
+
+</div>
+
