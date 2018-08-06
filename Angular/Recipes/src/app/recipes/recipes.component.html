@@ -2,12 +2,19 @@
 
   <div class="col-md-5">
 
-    <app-recipes-list></app-recipes-list>
+    <app-recipes-list ></app-recipes-list>
   </div>
 
   <div class="col-md-7">
 
-    <app-recipes-detail></app-recipes-detail>
+    <app-recipes-detail *ngIf="recipe;else displayNone"[recipeValue]="recipe"></app-recipes-detail>
+
+    <ng-template #displayNone>
+
+      <p>
+        Please select a recipe
+      </p>
+    </ng-template>
   </div>
 
 </div>

@@ -5,11 +5,11 @@
       <div class="col-xs-12">
 
 
-        <app-header></app-header>
+        <app-header (featureSelection)="onNavigation($event)"></app-header>
 
-        <app-recipes></app-recipes>
+        <app-recipes *ngIf="loadedFeature==='recipe'"></app-recipes>
 
-        <app-shopping-list></app-shopping-list>
+        <app-shopping-list *ngIf="loadedFeature!=='recipe'"></app-shopping-list>
       </div>
 
 
