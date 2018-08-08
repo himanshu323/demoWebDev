@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ServersService } from './servers.service';
 import { Router, ActivatedRoute } from '../../../node_modules/@angular/router';
+import { AuthGuard } from 'src/app/auth-guard.service';
 
 @Component({
   selector: 'app-servers',

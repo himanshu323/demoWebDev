@@ -13,17 +13,12 @@ import { EditServerComponent } from './servers/edit-server/edit-server.component
 import { ServerComponent } from './servers/server/server.component';
 import { ServersService } from './servers/servers.service';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { AppRouting } from 'src/app/app-routing.module';
+import { AuthGuard } from 'src/app/auth-guard.service';
+import { AuthenticationService } from 'src/app/auth.service';
+import { CanDeActivateGuard } from 'src/app/servers/edit-server/can-deactivate-guard.service';
 
-const appRoutes:Routes=[{path:"",component:HomeComponent},
-  { path: "users", component: UsersComponent, children: [{ path: ":id/:name", component: UserComponent },]},
-  
-  { path: "servers", component: ServersComponent ,
-    children: [{ path: ":id/edit", component: EditServerComponent },
-      { path: ":id", component: ServerComponent }]},
-  { path:"notfound",component:PagenotfoundComponent},
-  {path:"**", redirectTo:"notfound"}
-  
-];
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,9 +34,10 @@ const appRoutes:Routes=[{path:"",component:HomeComponent},
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes)
+    AppRouting
+
   ],
-  providers: [ServersService],
+  providers: [ServersService,AuthGuard,AuthenticationService,CanDeActivateGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
