@@ -7,10 +7,12 @@
 
         <app-header (featureSelection)="onNavigation($event)"></app-header>
 
-        <app-recipes *ngIf="loadedFeature==='recipe'"></app-recipes>
+    <!--     <app-recipes *ngIf="loadedFeature==='recipe'"></app-recipes>
 
         <app-shopping-list *ngIf="loadedFeature!=='recipe'"></app-shopping-list>
-      </div>
+      </div> -->
+
+      <router-outlet></router-outlet>
 
 
   </div>

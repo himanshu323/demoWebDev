@@ -14,6 +14,10 @@ export class RecipeService{
 )
 ];
 
+
+getRecipeOn(index:number){
+return this.recipe[index];
+}
     getRecipe(){
         return this.recipe.slice();
     }

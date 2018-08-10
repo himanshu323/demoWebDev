@@ -7,7 +7,9 @@
 
   <div class="col-md-7">
 
-    <app-recipes-detail *ngIf="recipe;else displayNone"[recipeValue]="recipe"></app-recipes-detail>
+    <!-- <app-recipes-detail  *ngIf="recipe;else displayNone"[recipeValue]="recipe"></app-recipes-detail> -->
+
+    <router-outlet></router-outlet>
 
     <ng-template #displayNone>
 
