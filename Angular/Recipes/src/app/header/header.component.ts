@@ -1,4 +1,6 @@
 import { Component, OnInit , EventEmitter,Output} from '@angular/core';
+import { RecipeService } from '../recipes/recipe.service';
+import {Response} from "@angular/http"
 
 @Component({
   selector: 'app-header',
@@ -7,10 +9,22 @@ import { Component, OnInit , EventEmitter,Output} from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
  
-  constructor() { }
+  constructor(private recipeService:RecipeService) { }
 
   ngOnInit() {
   }
 
- 
+  saveRecipe(){
+    this.recipeService.postRecipes().subscribe((data:Response)=>{
+        console.log(data);
+    })
+  }
+
+  getRecipe(){
+
+    this.recipeService.getRecipeFromServer().subscribe((data:any[])=>{
+     
+      this.recipeService.newRecipe(data);
+    })
+  }
 }
