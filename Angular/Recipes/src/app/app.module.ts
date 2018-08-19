@@ -9,7 +9,7 @@ import { RecipesDetailComponent } from './recipes/recipes-detail/recipes-detail.
 import { RecipesItemComponent } from './recipes/recipes-list/recipes-item/recipes-item.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
-import { HeaderComponent } from './header/header.component';
+
 import { DropdownDirective } from './dropdown.directive';
 import { ShoppingService } from './shopping-list/shopping.service';
 import {Routes}  from "@angular/router"
@@ -22,27 +22,28 @@ import { HttpModule } from '@angular/http';
 import { SigninComponent } from './auth/signin/signin.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { AuthService } from 'src/app/shared/auth.service';
+import { AuthGuard } from './shared/authguard.service';
+import { RecipesModel } from './recipes/recipes.module';
+import { SharedModule } from './shared/shared.module';
+import { ShoppingModule } from './shopping-list/shopping.module';
+import { AuthModule } from './auth/auth.module';
+
+import { CoreModule } from './core/core.module';
+import {HttpClient, HttpClientModule}  from "@angular/common/http"
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    RecipesComponent,
-    RecipesListComponent,
-    RecipesDetailComponent,
-    RecipesItemComponent,
-    ShoppingListComponent,
-    ShoppingEditComponent,
-    HeaderComponent,
-    DropdownDirective,
-    RecipeStartComponent,
-    RecipeEditComponent,
-    SigninComponent,
-    SignupComponent
+    
+    
+    
+   
   ],
   imports: [
-    BrowserModule,FormsModule,AppRouting,ReactiveFormsModule,HttpModule
+    BrowserModule,FormsModule,CoreModule,AppRouting,HttpModule,HttpClientModule,SharedModule,ShoppingModule,AuthModule
   ],
-  providers: [ShoppingService,RecipeService,AuthService],
+  
   bootstrap: [AppComponent]
 })
 export class AppModule { }

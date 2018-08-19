@@ -5,11 +5,13 @@ import { Subject } from "rxjs";
 import {Http,Response} from "@angular/http"
 import {map} from "rxjs/operators"
 import { AuthService } from "src/app/shared/auth.service";
+import { HttpClient, HttpHeaders, HttpParams ,HttpRequest} from "@angular/common/http";
+
 
 @Injectable()
 export class RecipeService{
 
-    constructor(private http:Http,private authService:AuthService){
+    constructor(private httpClient:HttpClient,private authService:AuthService){
 
     }
 
@@ -59,21 +61,34 @@ return this.recipe[index];
     postRecipes(){
 
         const token = this.authService.getToken();
-        return this.http.put("https://recipe-book-c5959.firebaseio.com/data.json?auth="+ token,this.recipe);
+       /*  return this.httpClient.put("https://recipe-book-c5959.firebaseio.com/data.json",this.recipe,
+    {observe:'response',
+    params:new HttpParams().set("auth",token) */
+    const req=new HttpRequest("PUT","https://recipe-book-c5959.firebaseio.com/data.json",this.recipe,{reportProgress:true,
+//params:new HttpParams().set("auth",token)
+});
+    return this.httpClient.request(req);
+   // headers:new HttpHeaders({"Content-Type":"application/json"})
+//});
     }
 
 
     getRecipeFromServer(){
         const token=this.authService.getToken();
-        return this.http.get("https://recipe-book-c5959.firebaseio.com/data.json?auth="+token ).pipe(map((data:Response)=>{
-           let recipes= data.json();
-           for(let r of recipes){
+        return this.httpClient.get("https://recipe-book-c5959.firebaseio.com/data.json",{
+            observe:'response',
+            responseType:'json',
+            //params:new HttpParams().set("auth",token)
+        } ).pipe(map((data:Recipe[])=>{
+          // let recipes= data.json();(re)
+          console.log(data);
+           for(let r of data){
                if(!r['ingredients']){
                    r['ingredients']=[];
                    console.log(r);
                }
            }
-        return recipes;
+        return data;
         }))
     }
 }
