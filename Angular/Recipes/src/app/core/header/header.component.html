@@ -16,14 +16,19 @@
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <li><a routerLink="/signUp">Sign Up</a></li>
+        
+        <ng-template [ngIf]="!isAuthenticated()">
+          <li><a routerLink="/signUp">Sign Up</a></li>
         <li>
           <a routerLink="/signIn">Sign In</a>
         </li>
+
+        </ng-template>
+        
         
 
   
-        <li class="dropdown" appDropdown >
+        <li class="dropdown" appDropdown *ngIf="isAuthenticated()">
           <a style="cursor:pointer">Manage <span class="caret"></span></a>
           <ul class="dropdown-menu"  >
 
@@ -31,6 +36,8 @@
             <li><a (click)="getRecipe()">Fetch Data</a></li>
           </ul>
         </li>
+
+        <li><a (click)="onLogout()" *ngIf="isAuthenticated()">LogOut</a></li>
       </ul>
 
   </div>

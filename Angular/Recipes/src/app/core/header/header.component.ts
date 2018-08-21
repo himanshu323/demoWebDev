@@ -1,6 +1,10 @@
 import { Component, OnInit , EventEmitter,Output} from '@angular/core';
-import { RecipeService } from '../recipes/recipe.service';
+
 import {Response} from "@angular/http"
+import { RecipeService } from '../../recipes/recipe.service';
+import { AuthService } from '../../shared/auth.service';
+import { HttpEvent } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-header',
@@ -9,13 +13,13 @@ import {Response} from "@angular/http"
 })
 export class HeaderComponent implements OnInit {
  
-  constructor(private recipeService:RecipeService) { }
+  constructor(private recipeService:RecipeService,public authService:AuthService) { }
 
   ngOnInit() {
   }
 
   saveRecipe(){
-    this.recipeService.postRecipes().subscribe((data:Response)=>{
+    this.recipeService.postRecipes().subscribe((data)=>{
         console.log(data);
     })
   }
@@ -26,5 +30,12 @@ export class HeaderComponent implements OnInit {
      
       this.recipeService.newRecipe(data);
     })
+  }
+
+  onLogout(){
+    this.authService.logOut();
+  }
+  isAuthenticated() {
+    return this.authService.isAuthenticated();
   }
 }
