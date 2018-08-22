@@ -23,9 +23,10 @@ import { SigninComponent } from './auth/signin/signin.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { AuthService } from 'src/app/shared/auth.service';
 import { StoreModule } from '@ngrx/store';
-import { reducers, metaReducers } from './reducers';
+
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
+import { reducers, metaReducers } from './store';
 
 @NgModule({
   declarations: [

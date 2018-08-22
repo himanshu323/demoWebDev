@@ -1,7 +1,8 @@
 import { Action } from '@ngrx/store';
 import { Ingredients } from 'src/app/shared/ingredients.model';
-import { ShoppngListActions, ShoppingListActionTypes } from 'src/app/actions/add-ingredient.actions';
+
 import { State } from '@ngrx/store/src/state';
+import { ShoppingListActionTypes, ShoppngListActions } from '../actions/add-ingredient.actions';
 
 
 export interface ingredientState {
